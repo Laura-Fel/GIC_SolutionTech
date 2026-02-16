@@ -1,75 +1,72 @@
 [
     {
+        "id": 1,
         "nombre": "Juan",
         "apellido": "Pérez",
         "correo": "juan.perez@email.com",
         "tipo": "Regular"
     },
     {
-        "nombre": "l",
-        "apellido": "l",
+        "id": 2,
+        "nombre": "Ana",
+        "apellido": "Garcia",
         "correo": "ana.garcia@gmail.com",
         "tipo": "Premium"
     },
     {
+        "id": 3,
         "nombre": "Carlos",
         "apellido": "Soto",
         "correo": "carlos.soto@empresa.cl",
         "tipo": "Corporativo"
     },
     {
+        "id": 4,
         "nombre": "María",
         "apellido": "López",
         "correo": "m.lopez@outlook.com",
         "tipo": "Regular"
     },
     {
+        "id": 5,
         "nombre": "Roberto",
         "apellido": "Díaz",
         "correo": "rdiaz@corporativo.com",
         "tipo": "Corporativo"
     },
     {
+        "id": 6,
         "nombre": "Elena",
         "apellido": "Ramírez",
         "correo": "elena.r@email.com",
         "tipo": "Premium"
     },
     {
+        "id": 7,
         "nombre": "Diego",
         "apellido": "Muñoz",
         "correo": "d.munoz@pyme.cl",
         "tipo": "Regular"
     },
     {
+        "id": 8,
         "nombre": "Lucía",
         "apellido": "Fernández",
         "correo": "lucia.f@tech.com",
         "tipo": "Premium"
     },
     {
+        "id": 9,
         "nombre": "Ricardo",
         "apellido": "Castro",
         "correo": "rcastro@servicios.cl",
         "tipo": "Corporativo"
     },
     {
+        "id": 10,
         "nombre": "Sofía",
         "apellido": "Araya",
         "correo": "s.araya@web.com",
         "tipo": "Regular"
-    },
-    {
-        "nombre": "LAURA",
-        "apellido": "LALA",
-        "correo": "LALA@DFD.COM",
-        "telefono": "KSAJJAFF",
-        "tipo": "Corporativo"
-    },
-    {
-        "nombre": "lala",
-        "apellido": "lala",
-        "correo": "lalal@gmail.com",
-        "tipo": "Premium"
     }
 ]

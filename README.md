@@ -25,8 +25,8 @@ SolutionTech/
 
 🧩 Pilares POO Implementados
 
-1. Encapsulamiento y Atributos Protegidos
-Se utiliza la convención de atributos protegidos (prefijo _) para asegurar que los datos de las entidades no sean manipulados directamente. La inicialización se realiza mediante Metaprogramación con setattr(), permitiendo que las clases sean flexibles a cambios en el esquema de datos.
+1. Encapsulamiento
+La inicialización se realiza mediante Metaprogramación con setattr(), permitiendo que las clases sean flexibles a cambios en el esquema de datos.
 
 2. Herencia Dinámica
 Existe una clase base Cliente de la cual heredan tres especializaciones:
@@ -57,12 +57,12 @@ Persistencia Robusta: Carga y guardado automático en archivos JSON con manejo d
 
 📈 Reglas de Negocio: Segmentación y Beneficios
 
-El sistema implementa una lógica polimórfica para el cálculo de ventas. Cada categoría de cliente posee un multiplicador de descuento único definido en la capa de modelos:
+El sistema implementa una arquitectura basada en herencia y funciones de orden superior para el cálculo de ventas. Cada categoría de cliente extiende de la clase base Cliente y sobrescribe el comportamiento del cálculo mediante una expresión lambda:
 
 Tipo de Cliente	| Descuento |	Lógica Técnica (Método)
-Regular	        | 5%       	| ClienteRegular.calcular_total()
-Premium	        | 20%       | ClientePremium.calcular_total()
-Corporativo 	| 30%	    | ClienteCorporativo.calcular_total()
+Regular	        | 5%       	| self.descuento_fn = lambda total: total * 0.95
+Premium	        | 20%       | self.descuento_fn = lambda total: total * 0.80
+Corporativo 	| 30%	    | self.descuento_fn = lambda total: total * 0.70
 
 Nota para el desarrollador: Esta estructura permite modificar los porcentajes de beneficio directamente en el archivo modelos/clientes.py sin alterar el flujo de venta en el main.py.
 
@@ -73,19 +73,20 @@ Para validar el Polimorfismo y la Persistencia de inmediato, el sistema cuenta c
 
 1. Perfiles de Cliente (base_datos/clientes.json)
 
-ID	|RUT	    |Nombre	      |Tipo	       |Descuento
-1	|12345678-K	|Juan Pérez	  |Regular	   |5%
-2	|15678901-2	|María García |Premium	   |20%
-3	|76543210-K	|Andrés Bello |Corporativo |30%
+ID	|Nombre	      |Tipo	       |Descuento
+1	|Juan Perez	  |Regular	   |5%
+2	|Ana Garcia   |Premium	   |20%
+3	|Carlos Soto  |Corporativo |30%
 
 2. Catálogo de Productos (base_datos/productos.json)
 
 ID	|Producto	            |Precio Base
-1	|Laptop Workstation	    |$1,200,000
-2	|Monitor UltraWide 34"	|$450,000
-3	|Teclado Mecánico Pro	|$85,000
+1	|Laptop Gamer           |$1.200.000
+2	|Mouse Inalámbrico   	|$25.000
+3	|Monitor 4K         	|$350.000
 
-Escenario de Prueba: Al seleccionar al Cliente ID 2 (Premium) y el Producto ID 1 ($1,200,000), el sistema aplicará automáticamente el beneficio Premium, resultando en un total de **$960,000**.
+
+Escenario de Prueba: Al seleccionar al Cliente ID 2 (Premium) y el Producto ID 1 ($1.200.000), el sistema aplicará automáticamente el beneficio Premium, resultando en un total de **$960.000**.
 
 
 🚀 Instalación y Uso
