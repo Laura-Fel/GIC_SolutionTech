@@ -1,70 +1,63 @@
 @startuml
 skinparam ClassAttributeIconSize 0
 skinparam monochrome true
-skinparam shadowing false
 
 package "modelos" {
-    class Cliente {
-        # nombre: str
-        # apellido: str
-        # correo: str
-        # telefono: str
+    abstract class Cliente {
+        + id_cliente: int
+        + nombre: str
+        + correo: str
         + tipo: str
-        + descuento_fn: lambda
-        + validar_datos(datos: dict)
-        + to_dict(): dict
+        + {abstract} calcular_total(subtotal: int): int
+        + a_dict(): dict
     }
 
     class ClienteRegular {
-        + descuento_fn: lambda (5%)
+        + calcular_total(subtotal): int // -5%
     }
-
     class ClientePremium {
-        + descuento_fn: lambda (20%)
+        + calcular_total(subtotal): int // -20%
     }
-
     class ClienteCorporativo {
-        + descuento_fn: lambda (30%)
+        + calcular_total(subtotal): int // -30%
     }
 
     class Producto {
+        + id_producto: int
         + nombre: str
         + precio: int
-        + stock: int
-        + to_dict(): dict
+        + a_dict(): dict
     }
 }
 
 package "servicios" {
-    class clientes_servicios {
-        + archivo: str
-        + clientes: list
-        + cargar_datos(): list
-        + guardar_datos()
-        + registrar(obj: Cliente)
+    class ClientesServicios {
+        - ruta: str
+        + leer_todos(): List<Cliente>
+        + guardar_todos(lista: List<Cliente>)
+        + obtener_nuevo_id(): int
     }
 }
 
-package "Raíz" {
-    class menu_servicios {
-        + ejecutar_menu()
-    }
-    
-    class main {
-        + inicializar_entorno()
-        + ejecutar()
-    }
+class MenuServicios {
+    - p_ruta: str
+    + menu_principal()
+    + simular_venta()
+    + submenu_clientes()
+    .. validaciones ..
+    + validar_nombre(texto)
+    + validar_correo(correo)
 }
 
-' Relaciones de Herencia
+' Herencia
 Cliente <|-- ClienteRegular
 Cliente <|-- ClientePremium
 Cliente <|-- ClienteCorporativo
 
-' Relaciones de Dependencia y Asociación
-clientes_servicios "1" o-- "*" Cliente : persiste >
-menu_servicios ..> clientes_servicios : utiliza
-menu_servicios ..> Cliente : instancía
-main ..> menu_servicios : inicia
+' Relaciones de dependencia y uso
+MenuServicios --> ClientesServicios : "usa para persistencia"
+MenuServicios ..> Cliente : "gestiona y calcula total"
+MenuServicios ..> Producto : "lee datos de"
+ClientesServicios ..> Cliente : "instancia y serializa"
 
 @enduml
