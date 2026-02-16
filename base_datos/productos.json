@@ -1,0 +1,52 @@
+[
+    {
+        "nombre": "Laptop Gamer",
+        "precio": 1200000.0,
+        "stock": 15
+    },
+    {
+        "nombre": "Mouse Inalámbrico",
+        "precio": 25000.0,
+        "stock": 50
+    },
+    {
+        "nombre": "Monitor 4K",
+        "precio": 350000.0,
+        "stock": 10
+    },
+    {
+        "nombre": "Teclado Mecánico",
+        "precio": 85000.0,
+        "stock": 25
+    },
+    {
+        "nombre": "Memoria RAM 16GB",
+        "precio": 75000.0,
+        "stock": 40
+    },
+    {
+        "nombre": "Disco SSD 1TB",
+        "precio": 95000.0,
+        "stock": 30
+    },
+    {
+        "nombre": "Audífonos Bluetooth",
+        "precio": 60000.0,
+        "stock": 20
+    },
+    {
+        "nombre": "Webcam HD",
+        "precio": 45000.0,
+        "stock": 12
+    },
+    {
+        "nombre": "Silla Ergonómica",
+        "precio": 180000.0,
+        "stock": 8
+    },
+    {
+        "nombre": "Cable HDMI 2.1",
+        "precio": 15000.0,
+        "stock": 100
+    }
+]

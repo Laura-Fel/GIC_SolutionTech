@@ -1,0 +1,70 @@
+@startuml
+skinparam ClassAttributeIconSize 0
+skinparam monochrome true
+skinparam shadowing false
+
+package "modelos" {
+    class Cliente {
+        # nombre: str
+        # apellido: str
+        # correo: str
+        # telefono: str
+        + tipo: str
+        + descuento_fn: lambda
+        + validar_datos(datos: dict)
+        + to_dict(): dict
+    }
+
+    class ClienteRegular {
+        + descuento_fn: lambda (5%)
+    }
+
+    class ClientePremium {
+        + descuento_fn: lambda (20%)
+    }
+
+    class ClienteCorporativo {
+        + descuento_fn: lambda (30%)
+    }
+
+    class Producto {
+        + nombre: str
+        + precio: int
+        + stock: int
+        + to_dict(): dict
+    }
+}
+
+package "servicios" {
+    class clientes_servicios {
+        + archivo: str
+        + clientes: list
+        + cargar_datos(): list
+        + guardar_datos()
+        + registrar(obj: Cliente)
+    }
+}
+
+package "Raíz" {
+    class menu_servicios {
+        + ejecutar_menu()
+    }
+    
+    class main {
+        + inicializar_entorno()
+        + ejecutar()
+    }
+}
+
+' Relaciones de Herencia
+Cliente <|-- ClienteRegular
+Cliente <|-- ClientePremium
+Cliente <|-- ClienteCorporativo
+
+' Relaciones de Dependencia y Asociación
+clientes_servicios "1" o-- "*" Cliente : persiste >
+menu_servicios ..> clientes_servicios : utiliza
+menu_servicios ..> Cliente : instancía
+main ..> menu_servicios : inicia
+
+@enduml

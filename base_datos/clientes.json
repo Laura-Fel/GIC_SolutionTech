@@ -1,0 +1,69 @@
+[
+    {
+        "nombre": "Juan",
+        "apellido": "Pérez",
+        "correo": "juan.perez@email.com",
+        "tipo": "Regular"
+    },
+    {
+        "nombre": "Ana",
+        "apellido": "García",
+        "correo": "ana.garcia@gmail.com",
+        "tipo": "Premium"
+    },
+    {
+        "nombre": "Carlos",
+        "apellido": "Soto",
+        "correo": "carlos.soto@empresa.cl",
+        "tipo": "Corporativo"
+    },
+    {
+        "nombre": "María",
+        "apellido": "López",
+        "correo": "m.lopez@outlook.com",
+        "tipo": "Regular"
+    },
+    {
+        "nombre": "Roberto",
+        "apellido": "Díaz",
+        "correo": "rdiaz@corporativo.com",
+        "tipo": "Corporativo"
+    },
+    {
+        "nombre": "Elena",
+        "apellido": "Ramírez",
+        "correo": "elena.r@email.com",
+        "tipo": "Premium"
+    },
+    {
+        "nombre": "Diego",
+        "apellido": "Muñoz",
+        "correo": "d.munoz@pyme.cl",
+        "tipo": "Regular"
+    },
+    {
+        "nombre": "Lucía",
+        "apellido": "Fernández",
+        "correo": "lucia.f@tech.com",
+        "tipo": "Premium"
+    },
+    {
+        "nombre": "Ricardo",
+        "apellido": "Castro",
+        "correo": "rcastro@servicios.cl",
+        "tipo": "Corporativo"
+    },
+    {
+        "nombre": "Sofía",
+        "apellido": "Araya",
+        "correo": "s.araya@web.com",
+        "tipo": "Regular"
+    },
+    {
+        "nombre": "LAURA",
+        "apellido": "LALA",
+        "correo": "LALA@DFD.COM",
+        "telefono": "KSAJJAFF",
+        "tipo": "Corporativo"
+    }
+]
